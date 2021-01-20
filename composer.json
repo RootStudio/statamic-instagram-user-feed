@@ -1,0 +1,33 @@
+{
+    "name": "pixney/statamic-instagram-user-feed",
+    "description": "Instagram Feed And Stories addon for Statamic",
+    "type": "statamic-addon",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Pixney\\StatamicInstagramUserFeed\\": "src"
+        }
+    },
+    "require": {
+        "pgrimaud/instagram-user-feed": "^6.0"
+    },
+    "authors": [
+        {
+            "name": "William Åström"
+        }
+    ],
+    "support": {
+        "email": "hello@pixney.com"
+    },
+    "extra": {
+        "statamic": {
+            "name": "Instagram Feed And Stories",
+            "description": "Instagram Feed And Stories addon for Statamic"
+        },
+        "laravel": {
+            "providers": [
+                "Pixney\\StatamicInstagramUserFeed\\ServiceProvider"
+            ]
+        }
+    }
+}
