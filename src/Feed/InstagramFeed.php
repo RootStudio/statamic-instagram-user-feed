@@ -84,12 +84,7 @@ class InstagramFeed
      */
     private function setProfile(string $profile) :bool
     {
-        if (!$profile || empty($profile)) {
-            return false;
-        }
-
         $this->profile = $profile;
-
         return true;
     }
 
@@ -128,12 +123,11 @@ class InstagramFeed
     {
         $this->setTake($take);
         $this->setExpiration($expiration);
-
-        if (!$this->verifyCredentials() || !$this->setProfile($profile)) {
-            return response()->json(['data'  => 'Missing profile or no credentials set.'], 400);
-        }
-
         $this->setCacheKey();
+
+        if (!$this->verifyCredentials()) {
+            return response()->json(['data'  => 'Missing Username and/or Password.'], 400);
+        }
 
         if (Cache::has($this->cacheKey) && $this->expiration > 0) {
             return response()->json([
