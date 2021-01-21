@@ -66,11 +66,11 @@ You are done.
 | take        | 3             | The number of posts to get (default:3,min:1,max:12) |
 
 
-## Publish and Customize the view
-To make it possible to get up and started quickly, there is a view included using Alpine
-and the Fetch API to get the feed data. You are 100% free to customize this view to
-however you feel is the best. You can get access to it by simply publishing it by
-entering the following command in your cli: `php artisan vendor:publish --tag=statamic-instagram-user-feed-views --force`
+## Publish and Customize the view to your liking
+Run this command to publish the view which is fully customisable `php artisan vendor:publish --tag=statamic-instagram-user-feed-views --force`
+
+The simple example included is using Alpine and the Fetch API. But we are returning a normal json object which
+means you can use any tools of your liking.
 
 ## Publish the configuration
 You should not need to change anything to the configuration file, but it 
