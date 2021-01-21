@@ -12,9 +12,6 @@ class ServiceProvider extends AddonServiceProvider
     protected $tags = [
         StatamicInstagramUserFeed::class
     ];
-    // protected $publishables = [
-    //     __DIR__ . '/../resources/views' => base_path('resources/views/venor/statamic-instagram-user-feed'),
-    // ];
 
     protected $routes = [
         'web'     => __DIR__ . '/../routes/web.php',

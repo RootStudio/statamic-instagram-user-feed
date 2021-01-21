@@ -3,19 +3,19 @@
 namespace Pixney\StatamicInstagramUserFeed\Http\Controllers;
 
 use Statamic\Http\Controllers\Controller;
-use Pixney\StatamicInstagramUserFeed\Feed\Instagram;
+use Pixney\StatamicInstagramUserFeed\Feed\InstagramFeed;
 
 class InstagramController extends Controller
 {
-    protected $instagram;
+    protected $instagramFeed;
 
     public function __construct()
     {
-        $this->instagram = new Instagram();
+        $this->instagramFeed = new InstagramFeed();
     }
 
     public function feed(string $profile, ?int $take=null, ?int $expiration=null)
     {
-        return $this->instagram->getFeed($profile, $take, $expiration);
+        return $this->instagramFeed->getFeed($profile, $take, $expiration);
     }
 }

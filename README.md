@@ -1,66 +1,85 @@
 # Statamic Instagram Feed
 
 ## Quick Installation - Get going Directly!
+Just like me, you probably just wanna get started as soon as possible, so let's
+get to it!
 
-Start off by creating a "dumb" instagram account and add it's credentials to your
-.env file:
+You could use your real instagram account, but i recommend getting a dummy one
+and use that.
+
+Once you have your username and password to that instagram account, add those credentials
+to your .env file: 
 
 ```
 INSTAGRAM_USERNAME=
 INSTAGRAM_PASSWORD=
 ```
 
-You are also able to define the url to be used when retrieving the feed
-(defaults to : **/statamic-instagram-user-feed/**)
+Since you are already inside this file we might as well have a look at what other settings
+that can be set here:
 
 ```
+# The url used to get the feeds remember to start and end it with a slash.
 INSTAGRAM_URL="/statamic-instagram-user-feed/"
-```
 
-Define default cache in seconds (defaults to 60 minutes)
+# Control how the date is formatted
+INSTAGRAM_DATE_FORMAT="Y-m-d H:i:s"
 
-```
-INSTAGRAM_INSTAGRAM_EXPIRATION=3600
-```
+# Set the expiration time of the cache.
+INSTAGRAM_EXPIRATION=3600
 
-Define default posts to grab (defaults to 3 posts)
-
-```
+# Set how many posts should be fetched.
 INSTAGRAM_TAKE=3
 ```
 
-Define date format
-```
-INSTAGRAM_DATE_FORMAT="Y-m-d H:i:s"
-```
+You don't have to add these settings yourself, the valued you see above are the
+default ones already set for you.
 
-### Install alpine js.
+**Important** The cache expiration and the value to take (number of posts) can
+be set with the Antlers tag. It is handy if you want to show different feeds with
+different settings.
 
-[Follow install instructions on the alpine website](https://github.com/alpinejs/alpine)
+Next up, install Alpine (under the hood we are just returning a json object with
+all the data, so you can use whatever you like.), [check out their website with instructions
+on how to do that](https://github.com/alpinejs/alpine). But since you just want to get
+started quickly, paste this into your layout.antlers.html file in the head:
 
 `<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>`
 
-### Add the tag to your antlers view
-
-`{{ instagram_feed profile="nummer.ett.ostersund" take="6" cache="86400" }}`
+Finally add our tag wherever you want to display your instagram feed (**Important:** You must 
+supply the profile of which feed you want to display):
+`{{ statamic_instagram_user_feed profile="pixney" }}`
 
 You are done.
 
-## Available Tag properties
 
-`profile`
+## The tag
+There are three properties available for the tag; profile, expiration and take:
+`{{ statamic_instagram_user_feed profile="pixney" expiration="3600" take="3" }}`
 
-`take`
+- **expiration:** number of seconds to cache the feed.
+- **take:** How many posts you want to display. Mininum 1, maximum 12.
+- **profile:** the profile of which you want to display posts.
 
-`cache`
+## Publish and Customize the view
+To make it possible to get up and started quickly, there is a view included using Alpine
+and the Fetch API to get the feed data. You are 100% free to customize this view to
+however you feel is the best. You can get access to it by simply publishing it by
+entering the following command in your cli: `php artisan vendor:publish --tag=statamic-instagram-user-feed-views --force`
+
+## Publish the configuration
+You should not need to change anything to the configuration file, but it 
+is possible by the following command : `php artisan vendor:publish --tag=statamic-instagram-user-feed-config --force`
 
 ## Roadmap
+
+- Include instagram stories
 - Write tests
+
 ## License
 
 Before going into productions with Statamic Instagram User Feed, you need to buy a license at the Statamic Marketplace.
 
 Statamic Instagram User Feed **is not** free software.
 
-php artisan vendor:publish --tag=statamic-instagram-user-feed-views --force
-php artisan vendor:publish --tag=statamic-instagram-user-feed-config --force
+

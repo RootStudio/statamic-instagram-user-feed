@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Cache;
 use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 
-class Instagram
+class InstagramFeed
 {
     /**
      * Instagram API
