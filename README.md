@@ -56,8 +56,9 @@ all the data, so you can use whatever you like.), [check out their website with 
 on how to do that](https://github.com/alpinejs/alpine). But since you just want to get
 started quickly, paste this into your layout.antlers.html file in the head:
 
-`<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>`
-
+```
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+```
 Finally add our tag wherever you want to display your instagram feed (**Important:** You must 
 supply the profile of which feed you want to display):
 `{{ statamic_instagram_user_feed profile="pixney" }}`
