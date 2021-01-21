@@ -53,13 +53,18 @@ supply the profile of which feed you want to display):
 You are done.
 
 
-## The tag
-There are three properties available for the tag; profile, expiration and take:
-`{{ statamic_instagram_user_feed profile="pixney" expiration="3600" take="3" }}`
+## Tag Parameters
 
-- **expiration:** number of seconds to cache the feed.
-- **take:** How many posts you want to display. Mininum 1, maximum 12.
-- **profile:** the profile of which you want to display posts.
+```
+{{ statamic_instagram_user_feed profile="pixney" expiration="3600" take="3" }}
+```
+
+| Field       | Default Value | Description                                |
+|-------------|---------------|--------------------------------------------|
+| profile     | null          | Instagram profile name to get feed from.            |
+| expiration  | 3600          | Number of seconds to cache the feed.                |
+| take        | 3             | The number of posts to get (default:3,min:1,max:12) |
+
 
 ## Publish and Customize the view
 To make it possible to get up and started quickly, there is a view included using Alpine
