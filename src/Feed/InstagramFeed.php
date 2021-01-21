@@ -121,6 +121,7 @@ class InstagramFeed
      */
     public function getFeed(string $profile, ?int $take, ?int $expiration) :object
     {
+        $this->setProfile($profile);
         $this->setTake($take);
         $this->setExpiration($expiration);
         $this->setCacheKey();
