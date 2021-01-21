@@ -1,13 +1,9 @@
-<code>
-    Profile : {{profile}} <br>
-    Take : {{take}} <br>
-    Cache Expiration : {{expiration}} <br>
-    Url : {{url}} <br>
-</code>
+
 
 <div class="container mx-auto">
 
     <div x-data="feed()" x-init="onInit()" class="">
+        
         <ul>
             <li>
                 <strong>Full Name: </strong> <span x-text="data.fullName"></span>
@@ -25,22 +21,23 @@
                 <img loading=lazy width="96" height="96" class="rounded-full w-24" :src="data.profilePicture" alt="">
             </li>
         </ul>
+
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-4 gap-y-4">
-            <template x-for="(item, index) in items" :key="index">
+            <template x-for="(post, index) in data.feed" :key="index">
                 <div class="shadow p-4 bg-gray-100">
-                    <img loading=lazy :src="item.displaySrc" :width="item.width" :height="item.height"
+                    <img loading=lazy :src="post.displaySrc" :width="post.width" :height="post.height"
                         class="object-cover w-full" alt="">
                     <div class="mt-2">
-                        <span>❤️</span><span class="ml-2" x-text="item.likes"></span> 
-                        <span>Comments: </span> <span x-text="item.comments"></span> 
-                        <span>Date: </span> <span x-text="item.date"></span>
+                        <span>❤️</span><span class="ml-2" x-text="post.likes"></span>
+                        <span>Comments: </span> <span x-text="post.comments"></span>
+                        <span>Date: </span> <span x-text="post.date"></span>
                     </div>
                     <p class="mt-2"><strong>Regular Caption</strong></p>
-                    <p x-text="item.caption" ></p>
+                    <p x-text="post.caption"></p>
                     <p class="mt-2"><strong>Caption without hashtags</strong></p>
-                    <p x-text="item.captionWithoutHashtags" ></p>
+                    <p x-text="post.captionWithoutHashtags"></p>
                     <p class="mt-2"><strong>Link</strong></p>
-                    <a :href="item.link" x-text="item.link"></a>
+                    <a :href="post.link" x-text="post.link"></a>
                 </div>
             </template>
         </div>
@@ -51,18 +48,22 @@
 <script type="text/javascript">
     function feed() {
         return {
-            items: [],
             data: [],
             onInit() {
                 this.fetch();
             },
             fetch() {
-                fetch(`{{url}}{{profile}}/{{take}}/{{expiration}}`)
-                    .then(res => res.json())
-                    .then(res => {
-                        console.log(res.data)
-                        this.data = res.data;
-                        this.items = res.data.feed;
+                fetch(`{{endpoint}}`, {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
+                        "X-Requested-With": "XMLHttpRequest",
+                    },
+                    credentials: "same-origin",
+                })
+                    .then(response => response.json())
+                    .then(response => {
+                        this.data = response.data;
                     }).catch(e => {
                         console.warn('Error: ', e);
                     });

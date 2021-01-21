@@ -1,4 +1,13 @@
 # Statamic Instagram Feed
+This addon will allow you to fetch instagram feed and storied without Oauth. 
+
+**Attention:** This addon is based on the following stable and popular package: 
+[Instagram User Feed](https://github.com/pgrimaud/instagram-user-feed)
+
+If for some reason it should stop working, so might this addon. Please keep that 
+in mind before buying this addon. However, that package has been around for a while
+and we have used it since 2018 without having any problems.
+
 
 ## Quick Installation - Get going Directly!
 Just like me, you probably just wanna get started as soon as possible, so let's
@@ -30,6 +39,9 @@ INSTAGRAM_EXPIRATION=3600
 
 # Set how many posts should be fetched.
 INSTAGRAM_TAKE=3
+
+# Activate a check to make sure traffic comes from your own website
+INSTAGRAM_CHECK_REFERER=true
 ```
 
 You don't have to add these settings yourself, the valued you see above are the
@@ -59,8 +71,8 @@ You are done.
 {{ statamic_instagram_user_feed profile="pixney" expiration="3600" take="3" }}
 ```
 
-| Field       | Default Value | Description                                |
-|-------------|---------------|--------------------------------------------|
+| Field       | Default Value | Description                                         |
+|-------------|---------------|-----------------------------------------------------|
 | profile     | null          | Instagram profile name to get feed from.            |
 | expiration  | 3600          | Number of seconds to cache the feed.                |
 | take        | 3             | The number of posts to get (default:3,min:1,max:12) |
@@ -110,12 +122,11 @@ the available helpers](https://github.com/alpine-collective/alpine-magic-helpers
 - [Truncate (if you want to show less of the caption)](https://github.com/alpine-collective/alpine-magic-helpers#truncate)
 - [Fetch (if you want to change from Fetch API)](https://github.com/alpine-collective/alpine-magic-helpers#fetch)
 
-
-
-
 ## Roadmap
 
 - Include instagram stories
+- Add front end themes using Tailwind CSS
+- Add more functionality and options
 - Write tests
 
 ## License
