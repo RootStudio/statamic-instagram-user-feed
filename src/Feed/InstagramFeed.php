@@ -126,11 +126,6 @@ class InstagramFeed
      */
     public function getFeed(string $profile, ?int $take, ?int $expiration) :object
     {
-        if (empty($profile)) {
-            return response()->json([
-                'data'  => 'Missing profile.',
-            ], 400);
-        }
         $this->setTake($take);
         $this->setExpiration($expiration);
 
@@ -166,7 +161,7 @@ class InstagramFeed
             return response()->json(['data' => $output, ], 200);
         } catch (\Throwable $th) {
             Log::error('Statamic Instagram User Feed Error:' . $th->getMessage() . "\n" . $th->getTraceAsString());
-            return response()->json(['data' => $th->getMessage()], 400);
+            return response()->json(['data' => $th->getMessage()], 500);
         }
     }
 
