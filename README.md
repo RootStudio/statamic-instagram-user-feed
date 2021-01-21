@@ -65,6 +65,33 @@ You are done.
 | expiration  | 3600          | Number of seconds to cache the feed.                |
 | take        | 3             | The number of posts to get (default:3,min:1,max:12) |
 
+## Available fields
+| Field          | Description                                          |
+|----------------|------------------------------------------------------|
+| id             | Instagram Profile ID                                 |
+| fullName       | Instagram Profile Full Name                          |
+| biography      | Instagran Profile Biography                          |
+| externalUrl    | Instamgram Profile Url                               |
+| profilePicture | Instagram Profile Picture                            |
+| feed           | Instagram Profile Feed (See available fields below)  | 
+
+## Feed
+| Field                  | Description                                          |
+|------------------------|------------------------------------------------------|
+| id                     | Feed Id                                              |
+| width                  | Width of post image in pixels                        |
+| height                 | Height of post image in pixels                       |
+| displaySrc             | Post Image                                           |
+| getThumbnailSrc        | Post Thumbnail Image                                 |
+| date                   | Post Date                                            | 
+| caption                | Post Caption                                         | 
+| captionWithoutHashtags | Post Caption without hashtags                        | 
+| comments               | Post Comments                                        | 
+| likes                  | Post Likes                                           | 
+| link                   | Post Link                                            | 
+| location               | Location if set                                      | 
+| hashtags               | Post Hashtags                                        | 
+
 
 ## Publish and Customize the view to your liking
 Run this command to publish the view which is fully customisable `php artisan vendor:publish --tag=statamic-instagram-user-feed-views --force`
@@ -75,6 +102,16 @@ means you can use any tools of your liking.
 ## Publish the configuration
 You should not need to change anything to the configuration file, but it 
 is possible by the following command : `php artisan vendor:publish --tag=statamic-instagram-user-feed-config --force`
+
+## Alpine Helpers
+If you love Alpine just like us, maybe you wanna continue using it. If that is the case, make sure you [checkout
+the available helpers](https://github.com/alpine-collective/alpine-magic-helpers). Especially these two:
+
+- [Truncate (if you want to show less of the caption)](https://github.com/alpine-collective/alpine-magic-helpers#truncate)
+- [Fetch (if you want to change from Fetch API)](https://github.com/alpine-collective/alpine-magic-helpers#fetch)
+
+
+
 
 ## Roadmap
 
