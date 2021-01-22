@@ -9,23 +9,21 @@ in mind before buying this addon. However, that package has been around for a wh
 and we have used it since 2018 without having any problems.
 
 
-## Quick Installation - Get going Directly!
-Just like me, you probably just wanna get started as soon as possible, so let's
-get to it!
-
-You could use your real instagram account, but i recommend getting a dummy one
+## Quick Start
+You could use your real instagram account, but we recommend getting a dummy one
 and use that.
 
-Once you have your username and password to that instagram account, add those credentials
-to your .env file: 
+### ENV Settings
+Once you have your username and password, add those credentials to your .env file: 
 
 ```
 INSTAGRAM_USERNAME=
 INSTAGRAM_PASSWORD=
 ```
 
-Since you are already inside this file we might as well have a look at what other settings
-that can be set here:
+Below are the other **optional** settings you can make to your .env file.
+**INSTAGRAM_EXPIRATION** & **INSTAGRAM_TAKE** can be set using the Antlers tag. It 
+is handy if you want to show different feeds with different settings.
 
 ```
 # The url used to get the feeds remember to start and end it with a slash.
@@ -44,27 +42,30 @@ INSTAGRAM_TAKE=3
 INSTAGRAM_CHECK_REFERER=true
 ```
 
-You don't have to add these settings yourself, the valued you see above are the
-default ones already set for you.
+*If you don't specify these, the default values shown will be used.*
 
-**Important** The cache expiration and the value to take (number of posts) can
-be set with the Antlers tag. It is handy if you want to show different feeds with
-different settings.
+### Add Alpine to your project
+Don't worry, you don't **have to** use Alpine if you don't like. A simple JSON object
+is returned to you, which means you can use whatever tool you like such as Vanilla Javascript,
+Vue, React or whatever.
 
-Next up, install Alpine (under the hood we are just returning a json object with
-all the data, so you can use whatever you like.), [check out their website with instructions
-on how to do that](https://github.com/alpinejs/alpine). But since you just want to get
-started quickly, paste this into your layout.antlers.html file in the head:
+However, we wanted to get up and run quickly, so we added a default view for you which
+included an Alpine implementation and the Fetch API. [Go to their website to see the best practices when it comes to installation.](https://github.com/alpinejs/alpine)
+
+For now, let us add the following script tag to your layout file:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+
+ <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+
 ```
 
 Finally add our tag wherever you want to display your instagram feed (**Important:** You must 
-supply the profile of which feed you want to display):
+supply the profile of whos feed you want to display):
+
 `{{ statamic_instagram_user_feed profile="pixney" }}`
 
-You are done.
+You are done and it should work!
 
 
 ## Tag Parameters
@@ -108,10 +109,7 @@ You are done.
 
 
 ## Publish and Customize the view to your liking
-Run this command to publish the view which is fully customisable `php artisan vendor:publish --tag=statamic-instagram-user-feed-views --force`
-
-The simple example included is using Alpine and the Fetch API. But we are returning a normal json object which
-means you can use any tools of your liking.
+Run the following command to publish a fully customizable view: `php artisan vendor:publish --tag=statamic-instagram-user-feed-views --force`
 
 ## Publish the configuration
 You should not need to change anything to the configuration file, but it 
