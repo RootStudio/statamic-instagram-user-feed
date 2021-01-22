@@ -52,12 +52,14 @@ Vue, React or whatever.
 However, we wanted to get up and run quickly, so we added a default view for you which
 included an Alpine implementation and the Fetch API. [Go to their website to see the best practices when it comes to installation.](https://github.com/alpinejs/alpine)
 
-For now, let us add the following script as a tag to your `layout.antlers.html` file.
+For now, let us add the following script tag to your layout file:
+(For some reason the script tag is not correctly rendered over at the Marketplace, but the path is : `https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js` , or go to the addons github page where it renders correctly.)
+
+```html
+
+ <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
 
 ```
-https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js
-```
-
 
 Finally add our tag wherever you want to display your instagram feed (**Important:** You must 
 supply the profile of whos feed you want to display):
