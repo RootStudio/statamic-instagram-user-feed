@@ -3,7 +3,7 @@ This addon will allow you to fetch instagram feed and storied without Oauth.
 
 ## Difference from the free version available in the marketplace
 - You are able to cache the feed
-- An ajax request is made and you return the feed as json. Which prevents render blockage.
+- An ajax request is made and your feed is returned as json. Which prevents render blockage.
 
 ## Problem : checkpoint_required
 If you have this issue, it means they have detected suspicious behaviour with 
