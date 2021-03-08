@@ -1,5 +1,15 @@
 # Statamic Instagram Feed
-This addon will allow you to fetch instagram feed and storied without Oauth. 
+This addon will allow you to fetch instagram feed and storied without Oauth.
+
+## Difference from the free version available in the marketplace
+- You are able to cache the feed
+- An ajax request is made and you return the feed as json. Which prevents render blockage.
+
+## Problem : checkpoint_required
+If you have this issue, it means they have detected suspicious behaviour with 
+your instagram account you are using to scrape the data. This is easily solved
+by logging in to your instagram account and paste the security code it will
+email you.
 
 **Attention:** This addon is based on the following stable and popular package: 
 [Instagram User Feed](https://github.com/pgrimaud/instagram-user-feed)

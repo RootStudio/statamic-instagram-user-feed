@@ -23,7 +23,7 @@
         </ul>
 
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-4 gap-y-4">
-            <template x-for="(post, index) in data.feed" :key="index">
+            <template x-if="data && data.feed" x-for="(post, index) in data.feed" :key="index">
                 <div class="shadow p-4 bg-gray-100">
                     <img loading=lazy :src="post.displaySrc" :width="post.width" :height="post.height"
                         class="object-cover w-full" alt="">
@@ -48,7 +48,7 @@
 <script type="text/javascript">
     function feed() {
         return {
-            data: [],
+            data: false,
             onInit() {
                 this.fetch();
             },
@@ -65,7 +65,7 @@
                     .then(response => {
                         this.data = response.data;
                     }).catch(e => {
-                        console.warn('Error: ', e);
+                        //console.warn('Error: ', e);
                     });
             }
         }
