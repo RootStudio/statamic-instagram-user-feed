@@ -14,9 +14,9 @@
         }
     },
     "require": {
-        "pgrimaud/instagram-user-feed": "^6.0",
-        "php": "^7.4 || ^8.0",
-        "statamic/cms": "^3.0.0"
+        "pgrimaud/instagram-user-feed": "6.*",
+        "php": "^7.4 || ^8.0 ",
+        "statamic/cms": "3.2.* || 3.3.* || 3.4.* || 4.*"
     },
     "authors": [
         {
@@ -37,6 +37,11 @@
             "providers": [
                 "Pixney\\StatamicInstagramUserFeed\\ServiceProvider"
             ]
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "pixelfear/composer-dist-plugin": true
         }
     }
 }
